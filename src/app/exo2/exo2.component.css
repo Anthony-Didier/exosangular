@@ -1,0 +1,12 @@
+div {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#numbers {
+  width: 40px;
+}
+
+#delete {
+  margin-left: 20px;
+}

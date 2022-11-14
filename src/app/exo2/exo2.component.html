@@ -1,0 +1,22 @@
+<div>
+  <h2>Exercise 2</h2>
+  <label for="operation">Type your arithmetic operation: </label>
+  <input id="numbers" [(ngModel)]="nb1" type="number" #firstNumber />
+  <label for="font-family"></label>
+  <select [(ngModel)]="defaultOp">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="x">x</option>
+    <option value="/">/</option>
+  </select>
+  <input id="numbers" [(ngModel)]="nb2" type="number" #secondNumber />
+  <div>
+    <button type="button" (click)="calculate(nb1, defaultOp, nb2, operation)">
+      Show result
+    </button>
+  </div>
+  <div *ngFor="let operation of operations?.reverse()">
+    {{ operation
+    }}<button id="delete" (click)="delete(operation)">Delete</button>
+  </div>
+</div>

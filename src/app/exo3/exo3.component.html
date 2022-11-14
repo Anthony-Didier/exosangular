@@ -1,0 +1,31 @@
+<script src="path/to/angular.js"></script>
+<script src="path/to/angular-route.js"></script>
+<div>
+  <h2>Exercise 3</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Id <span id="sort" (click)="sortById()">&#x25BC;</span></th>
+        <th>Amount <span id="sort" (click)="sortByAmount()">&#x25BC;</span></th>
+        <th>
+          Balance <span id="sort" (click)="sortByBalance()">&#x25BC;</span>
+        </th>
+        <th>Label <span id="sort" (click)="sortByLabel()">&#x25BC;</span></th>
+        <th>Date <span id="sort" (click)="sortByDate()">&#x25BC;</span></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let transaction of transactions"
+        routerLink="details/{{ transaction.id }}"
+      >
+        <td>{{ transaction.id }}</td>
+        <td>{{ transaction.amount }}</td>
+        <td>{{ transaction.balance }}</td>
+        <td>{{ transaction.label }}</td>
+        <td>{{ transaction.date }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<router-outlet></router-outlet>
