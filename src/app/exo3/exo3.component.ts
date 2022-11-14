@@ -11,23 +11,23 @@ import data from '../../assets/data/transactions.json';
 export class Exo3Component implements OnInit {
 
   transactions: Transaction[] = data;
+  myDate: Date | undefined;
+  updatedDate: string = "";
 
   constructor() { }
 
   ngOnInit(): void {
-    // for (let i = 0; i < this.transactions.length; i++) {
-    //   var date = new Date(this.transactions[i].date);
+    setInterval(() => {
+      this.myDate = new Date();
+      var day = ('0' + this.myDate.getDate()).slice(-2);
+      var month = ('0' + Number(this.myDate.getMonth() + 1)).slice(-2);
+      var year = this.myDate.getFullYear();
+      var hour = ('0' + this.myDate.getHours()).slice(-2);
+      var minute = ('0' + this.myDate.getMinutes()).slice(-2);
+      var second = ('0' + this.myDate.getSeconds()).slice(-2);
 
-    //   var day = ('0' + date.getDate()).slice(-2);
-    //   var month = ('0' + Number(date.getMonth() + 1)).slice(-2);
-    //   var year = date.getFullYear();
-    //   var hour = ('0' + date.getHours()).slice(-2);
-    //   var minute = ('0' + date.getMinutes()).slice(-2);
-    //   var second = ('0' + date.getSeconds()).slice(-2);
-
-    //   var newDate = day + "/" + month + "/" + year + " | " + hour + ":" + minute + ":" + second
-    //   this.transactions[i].date = newDate;
-    // }
+      this.updatedDate = day + "/" + month + "/" + year + " | " + hour + ":" + minute + ":" + second;
+    }, 1000);
   }
 
   sortById() {
